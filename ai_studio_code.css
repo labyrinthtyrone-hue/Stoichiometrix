@@ -1,0 +1,335 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    position: relative; /* For chatbot bubble positioning */
+}
+
+/* --- Landing Page Styles --- */
+.landing-page {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.landing-page header h1 {
+    font-size: 2.8em;
+    color: #4A90E2; /* A nice blue for the main title */
+    margin-bottom: 10px;
+}
+
+.landing-page .tagline {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.landing-page .description {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.landing-page .description h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.landing-page .description p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.landing-page .description h3 {
+    font-size: 1.4em;
+    color: #4A90E2;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.landing-page .description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.landing-page .description ul li {
+    background-color: #e9f2fa;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.95em;
+    border-left: 5px solid #4A90E2;
+}
+
+.landing-page .get-started {
+    font-size: 1.3em;
+    color: #666;
+    margin-top: 40px;
+}
+
+/* --- Chatbot Bubble --- */
+.chatbot-bubble {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #A020F0; /* Purple, matching blueprint button */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+
+.chatbot-bubble:hover {
+    transform: scale(1.05);
+}
+
+.chatbot-bubble img {
+    width: 35px;
+    height: 35px;
+    filter: invert(100%); /* Make icon white */
+}
+
+
+/* --- Chatbot Container --- */
+.chatbot-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 350px; /* Standard mobile width */
+    height: 600px; /* Standard mobile height */
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1001;
+}
+
+/* Show chatbot when active */
+.chatbot-container.active {
+    display: flex;
+}
+
+/* --- Chatbot Header --- */
+.chatbot-header {
+    background-color: #6ADBE8; /* Light blue/teal from blueprint */
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 1.1em;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.chatbot-header .chatbot-info {
+    display: flex;
+    align-items: center;
+}
+
+.chatbot-header .chatbot-info img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1); /* Make icon white */
+}
+
+.chatbot-header .online-status {
+    background-color: #A020F0; /* Purple from blueprint */
+    padding: 3px 8px;
+    border-radius: 15px;
+    font-size: 0.8em;
+}
+
+.chatbot-header .close-chatbot {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* --- Chatbot Body (Messages) --- */
+.chatbot-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #E0FFFF; /* Very light cyan, to match main chat area */
+}
+
+.chat-message {
+    display: flex;
+    margin-bottom: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.chat-message.bot {
+    justify-content: flex-start;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.message-content {
+    padding: 12px 18px;
+    border-radius: 20px;
+    line-height: 1.5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message.bot .message-content {
+    background-color: #D3D3D3; /* Gray from blueprint */
+    color: #333;
+    border-bottom-left-radius: 5px;
+    text-align: left;
+}
+
+.chat-message.user .message-content {
+    background-color: #A020F0; /* Purple from blueprint */
+    color: #fff;
+    border-bottom-right-radius: 5px;
+    text-align: right;
+}
+
+/* Welcome Screen Specifics */
+.welcome-screen {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.welcome-screen .message-content img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.welcome-screen .message-content h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.welcome-screen .message-content p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.welcome-screen .message-content input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.welcome-screen .message-content button {
+    background-color: #A020F0; /* Purple from blueprint */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.welcome-screen .message-content button:hover {
+    background-color: #8A1ACD; /* Darker purple on hover */
+}
+
+/* Chatbot Buttons (e.g., "Let's get started!") */
+.chatbot-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    justify-content: flex-start; /* Align to left like bot messages */
+}
+
+.chatbot-buttons button {
+    background-color: #f0f0f0; /* Light gray for options */
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.chatbot-buttons button:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+}
+
+
+/* --- Chatbot Footer --- */
+.chatbot-footer {
+    padding: 15px;
+    background-color: #fff;
+    border-top: 1px solid #eee;
+    display: flex;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.chatbot-footer input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 1em;
+    outline: none;
+}
+
+.chatbot-footer .send-btn {
+    background-color: #A020F0; /* Purple from blueprint */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.chatbot-footer .send-btn:hover {
+    background-color: #8A1ACD; /* Darker purple */
+}
+
+.chatbot-footer .send-btn svg {
+    fill: #fff;
+}

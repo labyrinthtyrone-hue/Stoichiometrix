@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoichiometrix - Your Chemistry Buddy</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="landing-page">
+        <header>
+            <h1>Stoichiometrix</h1>
+            <p class="tagline">Your Personal Stoichiometry Buddy</p>
+        </header>
+
+        <section class="description">
+            <h2>Master Stoichiometry with Ease!</h2>
+            <p>Stoichiometrix is an AI-powered learning assistant designed to help students master challenging stoichiometry concepts. From mole conversions to balancing equations, we've got you covered!</p>
+            <h3>Key Features:</h3>
+            <ul>
+                <li><strong>Conceptual Explanations:</strong> Get clear definitions and explanations.</li>
+                <li><strong>Guided Problem-Solving:</strong> Step-by-step help with complex calculations.</li>
+                <li><strong>Balancing Equations:</strong> Learn to balance chemical equations with ease.</li>
+                <li><strong>Error Correction & Hints:</strong> Receive helpful feedback on your answers.</li>
+                <li><strong>Interactive Quizzes:</strong> Test your understanding in a fun way.</li>
+                <li><strong>Multilingual Support:</strong> Learn in English, Tagalog, Filipino, or Spanish!</li>
+            </ul>
+        </section>
+
+        <footer class="get-started">
+            <p>Ready to boost your chemistry skills?</p>
+        </footer>
+    </div>
+
+    <!-- Chatbot Bubble -->
+    <div class="chatbot-bubble" id="chatbot-bubble">
+        <img src="https://cdn-icons-png.flaticon.com/512/3403/3403248.png" alt="Chatbot Icon">
+    </div>
+
+    <!-- Chatbot Interface -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <div class="chatbot-info">
+                <img src="https://cdn-icons-png.flaticon.com/512/3403/3403248.png" alt="Stoichiometrix Icon">
+                STOICHIOMETRIX
+            </div>
+            <span class="online-status">Online</span>
+            <button class="close-chatbot" id="close-chatbot">X</button>
+        </div>
+
+        <div class="chatbot-body" id="chatbot-body">
+            <!-- Welcome Screen -->
+            <div class="chat-message bot welcome-screen" id="welcome-screen">
+                <div class="message-content">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3403/3403248.png" alt="Icon">
+                    <h2>Hello!</h2>
+                    <p>I am your Stoichiometry Buddy. To get started, what is your nickname and age?</p>
+                    <input type="text" id="nickname-input" placeholder="Nickname">
+                    <input type="number" id="age-input" placeholder="Age">
+                    <button id="start-learning-btn">Start Learning...</button>
+                </div>
+            </div>
+
+            <!-- Chat messages will appear here -->
+        </div>
+
+        <div class="chatbot-footer">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn" class="send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
